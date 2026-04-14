@@ -39,4 +39,21 @@ public class CustomerController {
       return customerService.getbygender(gender);
    }
 
+   @GetMapping("/get/by-gender-and-age")
+   public List<customerResponce> getByGenderAndAge(
+           @RequestParam("gender") Gender gender,
+           @RequestParam("age") Integer age) {
+      return customerService.getByGenderAndAge(gender, age);
+   }
+
+   // Controller
+   @GetMapping("/get/by-gender-and-min-age")
+   public List<customerResponce> getByGenderAndAgeGreaterThan(
+           @RequestParam("gender") Gender gender,
+           @RequestParam("age") Integer age) {
+      return customerService.getByGenderAndgreaterthenAge(gender, age);
+   }
+
+
+
 }

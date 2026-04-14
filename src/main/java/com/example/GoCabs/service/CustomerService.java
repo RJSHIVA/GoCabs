@@ -48,4 +48,22 @@ public class CustomerService {
         return customerResponceList;
 
     }
+
+    public List<customerResponce> getByGenderAndAge(Gender gender, Integer age) {
+        List<Customer> customerList = customerRepository.findByGenderAndAge(gender,age);
+        List<customerResponce> customerResponceList = new ArrayList<>();
+        for(Customer customer : customerList){
+            customerResponceList.add(customerTransformer.customerToCustomerResponce(customer));
+        }
+        return customerResponceList;
+    }
+
+    public List<customerResponce> getByGenderAndgreaterthenAge(Gender gender, Integer age) {
+          List<Customer> customerList = customerRepository.findByGenderAndAgeGreaterThan(gender,age);
+          List<customerResponce> customerResponceList = new ArrayList<>();
+          for(Customer customer : customerList){
+              customerResponceList.add(customerTransformer.customerToCustomerResponce(customer));
+          }
+          return customerResponceList;
+    }
 }
