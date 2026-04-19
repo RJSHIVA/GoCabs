@@ -16,18 +16,33 @@ A Spring Boot REST API for cab booking management, built with Java, Spring Data 
 ---
 
 ## 📁 Project Structure
-GoCabs/
-├── controller/        # REST Controllers
-├── service/           # Business Logic
-├── repository/        # JPA Repositories
-├── model/             # Entity Classes
+src/main/java/com/example/GoCabs/
+├── controller/
+│   ├── BookingController.java
+│   ├── CabController.java
+│   ├── CustomerController.java
+│   └── DriverController.java
+├── service/
+│   ├── BookingService.java
+│   ├── CabService.java
+│   ├── CustomerService.java
+│   └── DriverService.java
+├── repository/
+│   ├── BookingRepository.java
+│   ├── CabRepository.java
+│   ├── CustomerRepository.java
+│   └── DriverRepository.java
+├── model/
+│   ├── Booking.java
+│   ├── Cab.java
+│   ├── Customer.java
+│   └── Driver.java
 ├── dto/
-│   ├── request/       # Request DTOs
-│   └── responce/      # Response DTOs
-├── transformer/       # Entity <-> DTO Converters
-├── exceptions/        # Custom Exceptions
-└── Enum/              # Enums (Status, Gender)
----
+│   ├── request/
+│   └── responce/
+├── transformer/
+├── exceptions/
+└── Enum/
 
 ## 🔗 API Endpoints
 
