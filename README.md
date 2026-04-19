@@ -16,6 +16,8 @@ A Spring Boot REST API for cab booking management, built with Java, Spring Data 
 ---
 
 ## 📁 Project Structure
+
+```plaintext
 src/main/java/com/example/GoCabs/
 ├── controller/
 │   ├── BookingController.java
@@ -43,6 +45,7 @@ src/main/java/com/example/GoCabs/
 ├── transformer/
 ├── exceptions/
 └── Enum/
+```
 
 ## 🔗 API Endpoints
 
