@@ -13,4 +13,16 @@ public class GlobalExceptionHandler {
         ErrorResponse error = new ErrorResponse(404, e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
+
+    @ExceptionHandler(driverNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleDriverNotFound(driverNotFoundException e) {
+        ErrorResponse error = new ErrorResponse(404, e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(cabNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleCabNotFound(cabNotFoundException e) {
+        ErrorResponse error = new ErrorResponse(404, e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
 }

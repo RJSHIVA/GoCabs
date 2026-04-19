@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -17,10 +18,15 @@ public class Driver {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    @Column(unique = true , nullable = false)
     private String email;
     private Integer age;
 
     @OneToMany(cascade = CascadeType.ALL)
             @JoinColumn(name = "driver_id")
-    ArrayList<Booking> bookings = new ArrayList<>();
+    List<Booking> bookings = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+            @JoinColumn(name="cab_id")
+    Cab cab;
 }

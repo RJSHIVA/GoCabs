@@ -1,22 +1,16 @@
-package com.example.GoCabs.model;
+package com.example.GoCabs.dto.responce;
 
-import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
-public class Cab {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class cabResponce {
     private int cab_number;
     private String cab_model;
     private double per_km_rate;
     private boolean available;
+    private driverResponce driverResponce;
 }

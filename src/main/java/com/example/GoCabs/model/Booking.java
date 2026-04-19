@@ -2,10 +2,7 @@ package com.example.GoCabs.model;
 
 import com.example.GoCabs.Enum.Status;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -17,6 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Booking {
 
     @Id
@@ -25,12 +23,23 @@ public class Booking {
     private String pickup;
     private String destination;
     private Integer distance_in_km;
-    private Status status;
     private double bill;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    // ✅ Add karo - Customer relation
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    // ✅ Add karo - Cab relation
+    @ManyToOne
+    @JoinColumn(name = "cab_id")
+    private Cab cab;
 
     @CreationTimestamp
     Date created_at;
     @UpdateTimestamp
     Date updated_at;
-
 }

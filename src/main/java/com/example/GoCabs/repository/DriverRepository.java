@@ -2,10 +2,16 @@ package com.example.GoCabs.repository;
 
 import com.example.GoCabs.model.Driver;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DriverRepository extends JpaRepository<Driver,Integer> {
+public interface DriverRepository extends JpaRepository<Driver, Integer> {
+
+    // ✅ cab_id (underscore) - matches actual DB column name
+    @Query(value = "SELECT * FROM driver WHERE cab_id = :cabId", nativeQuery = true)
+    Driver getBycabId(@Param("cabId") Integer cabId);
 
 
 }
